@@ -1,12 +1,9 @@
 name: Fetch and Commit Data
 
 on:
-  workflow_dispatch:
-    inputs:
-      api_url:
-        description: 'API URL to fetch data from'
-        required: true
-        default: 'https://dl.t.li-h.me/video/all'
+  repository_dispatch:
+    types: [fetch-data]
+
 
 jobs:
   fetch-and-commit:
@@ -24,7 +21,7 @@ jobs:
     - name: Fetch data from API
       id: fetch_data
       run: |
-        API_URL=${{ github.event.inputs.api_url }}
+        API_URL='https://api.t.li-h.me/video/all'
         curl -s $API_URL -o data.json
 
     - name: Save data to JSON file
