@@ -6,7 +6,7 @@ on:
       api_url:
         description: 'API URL to fetch data from'
         required: true
-        default: 'https://dl.t.li-h.me.com/video/all'
+        default: 'https://dl.t.li-h.me/video/all'
 
 jobs:
   fetch-and-commit:
